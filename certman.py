@@ -1,4 +1,4 @@
-#!/usr/bin/python -W ignore::DeprecationWarning
+#!/opt/venv/system36-rv1/bin/python3 -W ignore::DeprecationWarning
 
 import config
 import getopt
@@ -16,7 +16,7 @@ def certman():
     ran = False
     found_domain = False
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "achgrudepw", [
+        opts, args = getopt.getopt(sys.argv[1:], "achgrudepwl", [
           "all",
           "check-certificates",
           "generate-certificates",
@@ -74,9 +74,12 @@ def certman():
             for domain in domain_objects.keys():
                 certs_info = list_certificates(domain)
                 print("%s: " % domain)
-                for i in certs_info:
-                    for k,v in i.items():
-                       print("  %s: %s" % (k,v))
+                if len(certs_info) > 0 and certs_info != False:
+                    for i in certs_info:
+                        for k,v in i.items():
+                            print("  %s: %s" % (k,v))
+                else:
+                    print(f"  Certificate info for {domain} not found.")
         elif opt in ("-h", "--help"):
             usage()
         else:
