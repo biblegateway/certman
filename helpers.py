@@ -73,7 +73,7 @@ def load_domain_configs(config_directory):
         for file in os.listdir(config_directory):
             if file.endswith(".conf"):
                 with open(file) as config_file:
-                  config = yaml.load(config_file)
+                  config = yaml.load(config_file, Loader=yaml.FullLoader)
                 if config['primary_domain']:
                     primary_domain = config['primary_domain']
                     configs[primary_domain] = {}

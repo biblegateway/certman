@@ -2,7 +2,7 @@ import os
 import sys
 import yaml
 
-config_file = "config/certman-sample.conf"
+config_file = "/etc/certman.conf"
 
 def load_config(config_file):
     if os.path.isfile(config_file):

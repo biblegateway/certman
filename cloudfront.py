@@ -233,7 +233,7 @@ def list_certificates(primary_domain):
         PathPrefix='/cloudfront/' + primary_domain + '/'
     )
 
-    if response['ServerCertificateMetadataList']:
+    if 'ServerCertificateMetadataList' in response:
         return response['ServerCertificateMetadataList']
     else:
         return False
