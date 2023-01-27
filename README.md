@@ -17,7 +17,7 @@ Built to help make managing Lets Encrypt certificates easier on Cloudfront. Thou
 
 #### Installing
 ```
-git clone https://github.com/sethryder/certman.git
+git clone git@github.com:biblegateway/certman.git
 cd certman
 pip install -r requirements.txt
 cp config/certman-sample.conf /etc/certman.conf
@@ -34,7 +34,7 @@ Depending on your Certbot install you will need to update the configuration acco
 This is the primary config file for certman.
 
 * **certbot_arguments**: Arguments that are passed to certbot when creating and renewing certificates.
-* **certbot_binary_path**: Path to the cerbot binary (**Default**: /usr/local/bin/certbot-auto)
+* **certbot_binary_path**: Path to the cerbot binary (**Default**: /usr/local/bin/certbot)
 * **certbot_certificate_path**: Path to where Certbot keeps its current certificate symlinks. (**Default**: /etc/letsencrypt/live)
 * **domain_config_directory**: Path to config files for the managed domains. (**Default**: /etc/certman.d)
 * **hash_file_directory**: Path where certman saves its config hash files (**Default**: /etc/certman.d)
